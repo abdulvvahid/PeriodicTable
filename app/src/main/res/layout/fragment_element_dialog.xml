@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="element"
+            type="com.noor.periodictable.model.Element" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.ElementDialogFragment">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:id="@+id/tv_dialog_element_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{element.id}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="77" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/tv_dialog_element_abbreviation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@{element.abbreviation}"
+            android:textSize="60sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_element_id"
+            tools:text="Sl" />
+
+        <TextView
+            android:id="@+id/tv_dialog_element_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{element.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_dialog_element_abbreviation"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_element_abbreviation"
+            tools:text="Selenium" />
+
+        <TextView
+            android:id="@+id/tv_dialog_element_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            tools:text="1215.02352"
+            android:text="@{element.weight.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_dialog_element_abbreviation"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_element_name"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
