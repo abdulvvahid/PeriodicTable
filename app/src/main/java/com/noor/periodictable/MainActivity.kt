@@ -350,6 +350,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvTable.layoutManager = GridLayoutManager(this, 18, RecyclerView.VERTICAL, false)
         binding.rvTable.adapter = tableAdapter
+        tableAdapter.itemClickListener = { _, item, _, _ ->
+            
+        }
 
     }
 }

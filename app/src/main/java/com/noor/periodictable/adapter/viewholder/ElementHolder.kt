@@ -9,8 +9,13 @@ class ElementHolder(
     private val binding: ItemRvMainActivityBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    var itemClickListener: ((view: View, element: Element, position: Int, code: Int) -> Unit)? = null
+
     fun bind(element: Element) {
         binding.element = element
+        binding.llItem.setOnClickListener {
+            itemClickListener?.invoke(it, element, adapterPosition, 0)
+        }
     }
 
 }
