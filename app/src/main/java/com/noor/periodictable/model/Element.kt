@@ -1,8 +1,8 @@
 package com.noor.periodictable.model
 
 data class Element(
-    val position: Int? = null,
-    val id: Int? = null,
+    val position: Int,
+    val id: String? = null,
     val abbreviation: String? = null,
     val name: String? = null,
     val weight: Double? = null,

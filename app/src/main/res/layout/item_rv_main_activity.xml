@@ -8,8 +8,8 @@
     </data>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -17,24 +17,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="100"
-            android:textSize="16sp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/tv_item_abbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="100"
-            android:textSize="50sp"
+            android:textSize="30sp"
             android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/tv_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Helyum"
-            android:textSize="20sp"
+            tools:text="Helium"
+            android:textSize="12sp"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

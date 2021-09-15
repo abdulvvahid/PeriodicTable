@@ -10,7 +10,9 @@ class ElementHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(element: Element) {
-        binding.tvItemId.text = element.id.toString()
+        if(element.id != null){
+            binding.tvItemId.text = element.id.toString()
+        }
         binding.tvItemName.text = element.name
         binding.tvItemAbbreviation.text = element.abbreviation
     }
