@@ -19,8 +19,8 @@ class ElementDialogFragment : DialogFragment() {
         arguments?.let {
             element = it.getSerializable(SEND_ELEMENT) as Element
         }
-        setStyle(STYLE_NORMAL,
-            android.R.style.Theme_DeviceDefault_Dialog);
+        setStyle(STYLE_NO_TITLE,
+            android.R.style.Theme_Material_Light_Dialog_Alert);
     }
 
     override fun onCreateView(
