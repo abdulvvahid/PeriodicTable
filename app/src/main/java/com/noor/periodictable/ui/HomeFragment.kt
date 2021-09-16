@@ -1,16 +1,17 @@
 package com.noor.periodictable.ui
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.noor.periodictable.R
 import com.noor.periodictable.adapter.PeriodicTableAdapter
 import com.noor.periodictable.databinding.FragmentHomeBinding
 import com.noor.periodictable.util.ElementList.createElementList
+import com.noor.periodictable.util.ItemDecoration
 
 class HomeFragment : Fragment() {
 
@@ -26,14 +27,28 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    private fun initItems(){
+    private fun initItems() {
 
         tableAdapter = PeriodicTableAdapter(createElementList())
 
-        binding.rvTable.layoutManager = GridLayoutManager(requireContext(), 18, RecyclerView.VERTICAL, false)
+        binding.rvTable.layoutManager =
+            GridLayoutManager(
+                requireContext(),
+                resources.getInteger(R.integer.recycler_view_columns),
+                RecyclerView.VERTICAL,
+                false
+            )
         binding.rvTable.adapter = tableAdapter
+        binding.rvTable.setHasFixedSize(true)
+        binding.rvTable.itemAnimator
+        binding.rvTable.addItemDecoration(
+            ItemDecoration(
+                resources.getInteger(R.integer.recycler_view_columns),
+                resources.getDimensionPixelSize(R.dimen.element_spacing)
+            )
+        )
         tableAdapter.itemClickListener = { _, element, _, _ ->
-            if(element.abbreviation != null){
+            if (element.abbreviation != null) {
                 val dialog = ElementDialogFragment.newInstance(element)
                 dialog.show(childFragmentManager, "dialog")
             }
