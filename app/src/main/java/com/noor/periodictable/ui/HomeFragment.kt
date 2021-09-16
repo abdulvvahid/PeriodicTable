@@ -359,6 +359,8 @@ class HomeFragment : Fragment() {
         binding.rvTable.layoutManager = GridLayoutManager(requireContext(), 18, RecyclerView.VERTICAL, false)
         binding.rvTable.adapter = tableAdapter
         tableAdapter.itemClickListener = { _, item, _, _ ->
+            val dialog = ElementDialogFragment.newInstance()
+            dialog.show(childFragmentManager, "dialog")
         }
     }
 
