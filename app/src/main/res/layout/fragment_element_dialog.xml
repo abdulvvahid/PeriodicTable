@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="element"
             type="com.noor.periodictable.model.Element" />
@@ -18,8 +19,10 @@
             android:id="@+id/tv_dialog_element_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"
             android:text="@{element.id}"
+            android:layout_marginStart="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_half"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="77" />
@@ -28,35 +31,59 @@
             android:id="@+id/tv_dialog_element_abbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="@{element.abbreviation}"
             android:textSize="60sp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_half"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_dialog_element_id"
             tools:text="Sl" />
 
         <TextView
             android:id="@+id/tv_dialog_element_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="@{element.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_dialog_element_abbreviation"
-            app:layout_constraintTop_toTopOf="@+id/tv_dialog_element_abbreviation"
+            android:layout_marginStart="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_half"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_element_abbreviation"
             tools:text="Selenium" />
 
         <TextView
             android:id="@+id/tv_dialog_element_weight"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            tools:text="1215.02352"
-            android:text="@{element.weight.toString()}"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="40dp"
+            android:text="@{@string/weight_text(element.weight.toString())}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_half"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_element_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="1215.02352" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/iv_dialog_element"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginEnd="30dp"
+            android:src="@mipmap/eye"
+            app:layout_constraintStart_toStartOf="@id/guideline_half"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_dialog_element_abbreviation"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_element_name"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/element_image" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_half"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
