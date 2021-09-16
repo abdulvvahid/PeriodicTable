@@ -8,19 +8,23 @@ import androidx.fragment.app.DialogFragment
 import com.noor.periodictable.databinding.FragmentElementDialogBinding
 import com.noor.periodictable.model.Element
 import com.noor.periodictable.util.Constants.Companion.SEND_ELEMENT
+import com.noor.periodictable.util.ElementList.createElementList
 
 class ElementDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentElementDialogBinding
     private var element: Element? = null
+    private var elementList = createElementList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             element = it.getSerializable(SEND_ELEMENT) as Element
         }
-        setStyle(STYLE_NO_TITLE,
-            android.R.style.Theme_Material_Light_Dialog_Alert);
+        setStyle(
+            STYLE_NO_TITLE,
+            android.R.style.Theme_Material_Light_Dialog_Alert
+        )
     }
 
     override fun onCreateView(
@@ -28,7 +32,6 @@ class ElementDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentElementDialogBinding.inflate(layoutInflater, container, false)
-
         binding.element = element
 
         return binding.root
