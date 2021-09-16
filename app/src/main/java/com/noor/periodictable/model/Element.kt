@@ -1,5 +1,7 @@
 package com.noor.periodictable.model
 
+import java.io.Serializable
+
 data class Element(
     val position: Int,
     val id: String? = null,
@@ -7,4 +9,4 @@ data class Element(
     val name: String? = null,
     val weight: Double? = null,
     val image: String? = null,
-)
+) : Serializable
