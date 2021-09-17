@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,8 @@ import com.noor.periodictable.adapter.PeriodicTableAdapter
 import com.noor.periodictable.databinding.FragmentHomeBinding
 import com.noor.periodictable.util.ElementList.createElementList
 import com.noor.periodictable.util.ItemDecoration
+import jp.wasabeef.recyclerview.animators.FadeInUpAnimator
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 
 class HomeFragment : Fragment() {
 
@@ -46,6 +49,13 @@ class HomeFragment : Fragment() {
                 resources.getDimensionPixelSize(R.dimen.element_spacing)
             )
         )
+        binding.rvTable.itemAnimator = FadeInUpAnimator()
+        binding.rvTable.itemAnimator?.apply {
+            addDuration = 1000
+            removeDuration = 100
+            moveDuration = 1000
+            changeDuration = 100
+        }
         tableAdapter.itemClickListener = { _, element, _, _ ->
             if (element.abbreviation != null) {
                 val dialog = ElementDialogFragment.newInstance(element)
