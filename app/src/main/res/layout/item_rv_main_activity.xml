@@ -6,12 +6,16 @@
         <variable
             name="element"
             type="com.noor.periodictable.model.Element" />
+        <variable
+            name="background"
+            type="Integer" />
     </data>
 
     <LinearLayout
         android:id="@+id/ll_item"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        changeBackground = "@{background}"
         android:orientation="vertical">
 
         <TextView

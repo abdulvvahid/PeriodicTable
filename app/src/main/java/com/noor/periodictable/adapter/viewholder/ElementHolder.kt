@@ -13,6 +13,7 @@ class ElementHolder(
 
     fun bind(element: Element) {
         binding.element = element
+        binding.background = element.elementType
         binding.llItem.setOnClickListener {
             itemClickListener?.invoke(it, element, adapterPosition, 0)
         }

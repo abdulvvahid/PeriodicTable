@@ -8,5 +8,5 @@ data class Element(
     val abbreviation: String? = null,
     val name: String? = null,
     val weight: Double? = null,
-    val image: String? = null,
+    val elementType: Int? = null
 ) : Serializable

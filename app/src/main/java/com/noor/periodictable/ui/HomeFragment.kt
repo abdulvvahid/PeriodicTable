@@ -40,7 +40,6 @@ class HomeFragment : Fragment() {
             )
         binding.rvTable.adapter = tableAdapter
         binding.rvTable.setHasFixedSize(true)
-        binding.rvTable.itemAnimator
         binding.rvTable.addItemDecoration(
             ItemDecoration(
                 resources.getInteger(R.integer.recycler_view_columns),
